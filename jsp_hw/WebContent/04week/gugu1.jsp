@@ -4,7 +4,6 @@
 
 	<style>
 		table { border-collapse: collapse; }
-		
 		td { padding: 3px; }
 	</style>
 	
