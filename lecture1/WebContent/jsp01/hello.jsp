@@ -8,14 +8,10 @@
 
 <h1>안녕 JSP!</h1>
 <table border=1>
-<% for (int i=0; i <= 3; ++i) { 
-     out.println("  <tr>");
-     for (int j=1; j <= 4; ++j) {
-         out.println("    <td>" + (i * 4 + j) + "</td>");
-     }
-     out.println("  </tr>");
-   }
-%>
+<%  for (int i=1; i <= 10; ++i) { %>
+   i
+<%  } %>
+
 </table>
 
 </body>
