@@ -32,9 +32,9 @@ public class UserDAO2 {
     }
 
     public static List<User> findByName(String name) throws Exception {
-        String sql = "SELECT u.*, d.departmentName "
-        			+ "FROM user u LEFT JOIN department d ON u.departmentId = d.id"
-        			+ "WHERE u.name LIKE ?";
+        String sql = "SELECT u.*, d.departmentName " +
+        			"FROM user u LEFT JOIN department d ON u.departmentId = d.id " +
+        			"WHERE u.name LIKE ?";
         try (Connection connection = DB.getConnection("student1");
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, name + "%");
