@@ -1,33 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-int id = 0;
-String studentNumber = "";
+String chk_info = "";
 String name = "";
-int departmentId = 1;
-int year = 0;
 String 에러메시지 = null;
+
 request.setCharacterEncoding("UTF-8");
 if (request.getMethod().equals("POST")) {
     String str = "";
-	str = request.getParameter("id");
-    id = Integer.parseInt(str);
-    studentNumber = request.getParameter("studentNumber");
     name =  request.getParameter("name");
-    str = request.getParameter("departmentId");
-    departmentId = Integer.parseInt(str);
-    str = request.getParameter("year");
-    year = Integer.parseInt(str);
+    chk_info = request.getParameter("chk_info");
     
     if (name == null || name.length() == 0) 
         에러메시지 = "이름을 입력하세요";
-    else if (year == 0) 
-        에러메시지 = "학년을 입력하세요";
-    else {
-        Student student = new Student(id, studentNumber, name, departmentId, year);
-        session.setAttribute("student", student);
-        response.sendRedirect("studentCreate_success.jsp");
-        return;
-    }    
+    else if (chk_info == null || chk_info.length() == 0) 
+        에러메시지 = "성별을 입력하세요";
 }
 %>
 <!DOCTYPE html>
@@ -45,7 +31,7 @@ if (request.getMethod().equals("POST")) {
   .btn { padding: 0.7em 2em; border: 1px solid #aaa; border-radius: 4px; 
          background: linear-gradient(#fff, #ddd); color: black;       
          font-family: 굴림체; font-size: 10pt; line-height: 1em;   
-         text-decoration: none; cursor: pointer; display: inline-block; }
+         text-decoration: none; cursor: pointer; display: inline-block; margin: 10px; margin-left: 0px; }
   .btn:active {
       -ms-transform: translateY(2px);
       -webkit-transform: translateY(2px);
@@ -54,7 +40,7 @@ if (request.getMethod().equals("POST")) {
    hr { margin-top: 80px; }
    div.info { margin: 10px; padding: 10px 20px; background-color: #dff; border: 1px solid #8ff; }
    div.error { margin: 10px; padding: 10px 20px; background-color: #fdd; border: 1px solid #faa; }
-   table{ border-collapse: collapse; width: 200px; }
+   table{ border-collapse: collapse; width: 200px; padding: 10px;}
 </style>
 </head>
 <body>
@@ -69,18 +55,18 @@ if (request.getMethod().equals("POST")) {
   </div>
   <div>
     <label>성별</label>
-		<input type="radio" name="chk_info" value="male">남자<br />
-		<input type="radio" name="chk_info" value="female">여자<br />
+		<input type="radio" name="chk_info" value="남자">남자<br />
+		<input type="radio" name="chk_info" value="여자">여자<br />
   <button type="submit" class="btn">회원 등록</button>
 </form>
 <table border="1">
 	<tr>
 	    <td>이름</td>
-	    <td></td>
+	    <td><%= name%></td>
 	</tr>
 	<tr>
 	    <td>성별</td>
-	    <td></td>
+	    <td><%= chk_info%></td>
 	</tr>
 </table>
 
