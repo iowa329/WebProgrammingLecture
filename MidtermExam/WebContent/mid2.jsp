@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
 	body { font-family: 굴림체; }
-	input { padding: 4px; }
+	input { padding: 4px; margin-bottom: 10px; }
 	button { padding: 0.4em 1em; }
 </style>
 </head>

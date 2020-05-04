@@ -19,7 +19,7 @@ if (request.getMethod().equals("POST")) {
   form div { margin-bottom: 10px; }
   input { width: 200px; padding: 4px; }
   button { padding: 0.4em 3em; margin-top: 10px; }
-  table{ border-collapse: collapse; width: 200px; }
+  table{ border-collapse: collapse; width: 200px; padding: 10px;}
 </style>
 </head>
 <body>
