@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, midterm.*" %>
 <%
-List<Book> list = BookDAO.findAll();
+	List<Book> list = BookDAO.findAll();
 %>
 <!DOCTYPE html>
 <html>

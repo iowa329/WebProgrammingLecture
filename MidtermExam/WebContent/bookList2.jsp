@@ -23,7 +23,7 @@
 
   <h1>책목록</h1>
 	<form>
-		<label>이름</label> <input type="text" name="srchText"
+		<label>저자</label> <input type="text" name="srchText"
 			value="<%=srchText%>" placeholder="검색조건" />
 		<button type="submit">조회</button>
 	</form>

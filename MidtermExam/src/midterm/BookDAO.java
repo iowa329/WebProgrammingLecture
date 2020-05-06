@@ -9,8 +9,8 @@ import java.util.List;
 public class BookDAO {
 
     public static List<Book> findAll() throws Exception {
-    	String sql = "SELECT * FROM book.category " +
-    			"SELECT b.*, c.categoryName FROM book b LEFT JOIN category c ON b.categoryId = c.id";
+    	String sql = "SELECT * FROM book.category; " +
+    			"SELECT b.*, c.categoryName FROM book b LEFT JOIN category c ON b.categoryId = c.id;";
         try (Connection connection = DB.getConnection("book");
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
