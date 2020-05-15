@@ -21,6 +21,7 @@ public class UserDAO2 {
             while (resultSet.next()) {
                 User user = new User();
                 user.setUserid(resultSet.getString("userid"));
+                user.setId(resultSet.getInt("id"));
                 user.setName(resultSet.getString("name"));
                 user.setEmail(resultSet.getString("email"));
                 user.setDepartmentName(resultSet.getString("departmentName"));
