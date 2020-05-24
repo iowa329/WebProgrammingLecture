@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lecture1.DB;
+import lecture1.jdbc2.Student;
 
 public class StudentDAO2 {
 

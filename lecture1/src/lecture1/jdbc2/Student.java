@@ -1,4 +1,4 @@
-package lecture1.jdbc1;
+package lecture1.jdbc2;
 
 public class Student {
 
