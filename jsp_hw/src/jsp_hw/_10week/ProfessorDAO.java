@@ -41,10 +41,16 @@ public class ProfessorDAO {
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next())
+                if (resultSet.next()) {
                     return getProfessorFrom(resultSet);
-                else
-                    return null;
+                } else {
+                	Professor professor = new Professor();
+	        		professor.setId(0);
+	        		professor.setProfessorName("");
+	        		professor.setDepartmentId(0);
+	        		professor.setDepartmentName("");
+	                return professor;
+                }
             }
         }
     }

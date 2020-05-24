@@ -9,9 +9,9 @@ public class ProfessorService {
         if (StringUtil.isEmptyOrBlank(professor.getProfessorName()))
             return 이름_필수;
 
-        Professor professor1 = ProfessorDAO.findById(professor.getId());
-        if (professor1 != null && professor1.getId() == professor.getId())
-            return 아이디_중복;
+//        Professor professor1 = ProfessorDAO.findById(professor.getId());
+//        if (professor1 != null && professor1.getId() == professor.getId())
+//            return 아이디_중복;
 
         return null;
     }
@@ -20,21 +20,20 @@ public class ProfessorService {
         String errorMessage = validate(professor);
         if (errorMessage != null) return errorMessage;
 
-//        int checkId = 0;
-//        professor.setId(checkId);
-//    	boolean isExist = true;
-//    	while(isExist) {
-//	    	Professor professor1 = ProfessorDAO.findById(professor.getId());
-//	        if (professor != null && professor1.getId() == professor.getId()) {
-//	        	checkId++;
-//	        	professor.setId(checkId);
-//	        } else {
-//	        	isExist = false;
-//	        	ProfessorDAO.insert(professor);
-//	        }
-//    	}
+		int checkId = 0;
+		professor.setId(checkId);
+		boolean isExist = true;
+		while(isExist) {
+	    	Professor professor1 = ProfessorDAO.findById(professor.getId());
+	        if (professor != null && professor1.getId() == professor.getId()) {
+	        	checkId += 1;
+	        	professor.setId(checkId);
+	        } else {
+	        	isExist = false;
+	        	ProfessorDAO.insert(professor);
+	        }
+		}
 
-    	ProfessorDAO.insert(professor);
         return null;
     }
 
