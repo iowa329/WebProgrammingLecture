@@ -8,7 +8,7 @@ String errorMessage = null;
 if (request.getMethod().equals("POST")) {
     errorMessage = ProfessorService.insert(professor);
     if (errorMessage == null) {
-        response.sendRedirect("professorList.jsp");
+        response.sendRedirect("professorCreate_success.jsp");
         return;
     }    
 }
@@ -32,10 +32,10 @@ List<Department> departments = DepartmentDAO.findAll();
 
 <form method="post" class="shadow">
   <h1>교수 등록</h1>
-  <div>
+  <%-- <div>
     <label>아이디</label>
     <input type="text" name="id" value="${ professor.id }" />
-  </div>
+  </div> --%>
   <div>
     <label>이름</label>
     <input type="text" name="professorName" value="${ professor.professorName }" />
